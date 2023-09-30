@@ -3,6 +3,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require("mongoose");
+
+mongoose.set("strictQuery", false);
+
+// Define the database URL to connect to.
+const mongoDB = "mongodb://127.0.0.1/local-library";
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
