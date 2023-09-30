@@ -3,7 +3,7 @@
     <ul>
         <% for (const value of bookinstance_list) { %>
             <li>
-                <a href= <%= value.book.url %> > <%= value.book.title %> : (<%= value.imprint %>)</a>
+                <a href= <%= value.url %> > <%= value.book.title %> : (<%= value.imprint %>)</a>
                 <% if (value.status=='Available') { %>
                     <span class="text-success"><%= value.status %></span>
                 <% } else if (value.status=='Maintenance') { %>
