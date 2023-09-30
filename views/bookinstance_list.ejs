@@ -1,0 +1,20 @@
+<%- include('./partials/header'); -%>
+    <h1><%= title %></h1>    
+    <ul>
+        <% for (const value of bookinstance_list) { %>
+            <li>
+                <a href= <%= value.book.url %> > <%= value.book.title %> : (<%= value.imprint %>)</a>
+                <% if (value.status=='Available') { %>
+                    <span class="text-success"><%= value.status %></span>
+                <% } else if (value.status=='Maintenance') { %>
+                    <span class="text-danger"><%= value.status %></span>
+                <% } else { %>
+                    <span class="text-warning"><%= value.status %></span>
+                <% }; %>
+                <% if (value.status!='Available') { %>
+                    <span>Due: <%= value.due_back_formatted %></span>
+                <% }; %>
+            </li>
+        <% }; %>        
+    </ul>
+<%- include('./partials/footer'); -%>
