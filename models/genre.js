@@ -14,7 +14,7 @@ const GenreSchema = new Schema({
 // Virtual for genreschema's URL
 GenreSchema.virtual("url").get(function () {
   // We don't use an arrow function as we'll need the this object
-  return `/catalog/genreschema/${this._id}`;
+  return `/catalog/genre/${this._id}`;
 });
 
 // Export model
